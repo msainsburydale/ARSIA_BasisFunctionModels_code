@@ -13,9 +13,9 @@ library("ggpubr") # ggarrange
 library("xtable")
 
 
-DIRECTORY <- "ENTER THE PATH TO THE PARENT DIRECTORY HERE"
+DIRECTORY <- "ENTER THE PATH TO THE DIRECTORY CONTAINING SST_analysis.R"
 ## e.g., 
-## DIRECTORY <- "~/Dropbox/Basis_Function_Models_src/Code/Brazil_Malvinas_DEM/"
+## DIRECTORY <- "~/ARSIA_BasisFunctionModels_code/"
 
 ## Packages used in the study
 PACKAGES <- c("FRK", "INLA", "mgcv", "LKrig", "MRA", "gstat")
@@ -173,7 +173,7 @@ times$gstat<- system.time(
 MRA_results <- read.csv(
   paste0(DIRECTORY, 
          "results/MRA/df_train_test_res/dataset1_results_MRA.csv")
-  )
+)
 ## Sanity check:
 all(MRA_results$x == df_test$lon)
 all(MRA_results$y == df_test$lat)
@@ -196,7 +196,7 @@ offset_predictions <- read.csv(
 
 ## Sanity check: Confirm that locations are the same
 MRA_problematic_idx <- which(is.na(MRA_results$pred) | MRA_results$pred_var < 0)
-MRA_results[MRA_problematic_idx, c("x", "y")] - (offset_predictions[, c("x", "y")] - 0.0002)
+max(MRA_results[MRA_problematic_idx, c("x", "y")] - (offset_predictions[, c("x", "y")] - 0.0002))
 ## We can confirm that the coordinates are the same (within machine precision), 
 ## with locations shifted up by 0.0002 (both longitude and latitude). 
 ## Now replace problematic locations:
@@ -205,7 +205,7 @@ MRA_results[MRA_problematic_idx, ] <- offset_predictions
 ## Add MRA to df_test and times
 df_test$pred_MRA <- MRA_results$pred
 df_test$se_MRA <- sqrt(MRA_results$pred_var) 
-MRA_time <-  read.csv(paste0(DIRECTORY, "results/MRA_res_default_parameters/df_train_test_res/MRA_parameters.csv"))
+MRA_time <-  read.csv(paste0(DIRECTORY, "results/MRA/df_train_test_res/MRA_parameters.csv"))
 times$MRA <- c("elapsed" = MRA_time$totaltime) 
 
 
@@ -274,7 +274,7 @@ df_test$time <- as.numeric(tmp[as.character(df_test$Method)])
 ## Re-order the diagnostics to put gstat at the end:
 idx <- c(which(diagnostics$Method != "gstat"), which(diagnostics$Method == "gstat"))
 diagnostics <- diagnostics[idx, ]
-
+diagnostics
 write.csv(diagnostics, 
           file = paste0(DIRECTORY, "results/Diagnostics.csv"), 
           row.names = FALSE)

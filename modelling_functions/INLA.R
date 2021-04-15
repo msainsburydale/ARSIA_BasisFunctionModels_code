@@ -1,3 +1,9 @@
+## NB: Unfortunately, INLA cannot be broken down to a fit and predict function
+## (see https://www.r-inla.org/faq#h.821k2r53fvx3). 
+## This means we need to re-run model fitting every time we want to predict
+## over new locations. We could provide all sets of prediction locations at once;
+## however, this would complicate things somewhat, and only one set of predictions
+## are included in the run-time, so it is fine as is.
 SST_INLA <- function(pred_locs, df_train, max.edge.interior = 0.3, 
                      sigma0 = 1 * sd(df_train$Z), range0 = 0.25) {
   

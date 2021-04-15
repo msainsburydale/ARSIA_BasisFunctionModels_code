@@ -17,7 +17,7 @@ WithinSST_analysis.R, first load the required packages, and then enter the path 
 
 Next, it loads the model fitting and prediction functions, which are kept in ./modelling_functions/, and produces predictions the testing locations. The data frame containing the testing data, predictions, and prediction standard errors, is saved in results/df_test.csv. One may load this data frame directly if one wishes to skip model fitting and prediction (commands for loading df_test.csv are included in the SST_analysis.R script). Using df_test, out-of-sample diagonstics are produced, as given in Table 1 of the manuscript.
 
-Finally, using the previously fitted model object, the script generates predictions over the spatial domain, D, yielding Figure 5 of the manuscript. These results are saved in ./results/grid_over_D.csv. Again, one may load this data frame directly if one wishes to skip model fitting and prediction, and commands for doing so are provided in the script. 
+Finally, using the previously fitted model objects, the script generates predictions over the spatial domain, D, yielding Figure 5 of the manuscript. These results are saved in ./results/grid_over_D.csv. Again, one may load this data frame directly if one wishes to skip model fitting and prediction, and commands for doing so are provided in the script. 
 
 
 #### References

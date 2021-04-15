@@ -19,4 +19,7 @@ Next, it loads the model fitting and prediction functions, which are kept in ./m
 
 Finally, using the previously fitted model object, the script generates predictions over the spatial domain, D, yielding Figure 5 of the manuscript. These results are saved in ./results/grid_over_D.csv. Again, one may load this data frame directly if one wishes to skip model fitting and prediction, and commands for doing so are provided in the script. 
 
+
+#### References
+
 * Huang H, Blake LR, Hammerling DM. 2019. Pushing the limit: A hybrid parallel implementation of the multi-resolution approximation for massive data. arXiv preprint arXiv:1905.00141

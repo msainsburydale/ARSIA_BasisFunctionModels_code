@@ -11,7 +11,7 @@ The predictions and standard errors obtained using each package are shown below.
 
 ## Instructions
 
-To reproduce the results please download this repository. Open SST_analysis.R; this is the controlling script for the entire analysis. The code populates the img/ and results/ directories, the contents of which are either used in the paper or by subsequent code. 
+To reproduce the results please download this repository (see [here](https://superuser.com/a/1309684) for steps to download a repository). Open SST_analysis.R; this is the controlling script for the entire analysis. The code populates the img/ and results/ directories, the contents of which are either used in the paper or by subsequent code. 
 
 Within SST_analysis.R, first load the required packages, and then enter the path to this repository in the DIRECTORY variable. The first stages of this script consist of data pre-processesing and visualisation, yielding Figure 4 in the manuscript. 
 

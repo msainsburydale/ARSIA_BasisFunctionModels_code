@@ -1,12 +1,12 @@
 # ARSIA review of basis-function models
 
-As part of our review of basis-function models in spatial statistics, we compared the spatial predictions obtained using the `R` packages `FRK`, `INLA`, `LatticeKrig`, `mgcv`, and `gstat`, as well as a `C++` implementation of the multi-resolutional approximation (Huang et al., 2019).  The data consists of sea-surface temperatures in the Brazil-Malvinas confluence zone, shown in the following.
+As part of our review of basis-function models in spatial statistics, we compared the spatial predictions obtained using the `R` packages `FRK`, `INLA`, `LatticeKrig`, `mgcv`, and `gstat`, as well as a `C++` implementation of the multi-resolutional approximation (Huang et al., 2019).  The data consists of sea-surface temperatures in the Brazil-Malvinas confluence zone, shown below. This is Figure 4 of the manuscript. 
 
-![Sea-surface temperature data](/img/global_and_training_data.png?raw=true)
+![Figure 4: Sea-surface temperature data](/img/global_and_training_data.png?raw=true)
 
-The predictions and standard errors are shown in the following.
+The predictions and standard errors obtained using each package are shown below. This is Figure 5 of the manuscript.
 
-![Predictions and standard errors](/img/DEM_results.png?raw=true)
+![Figure 5: Predictions and standard errors](/img/DEM_results.png?raw=true)
 
 
 ## Instructions

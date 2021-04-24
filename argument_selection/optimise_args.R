@@ -31,7 +31,7 @@ FRK_scores <- test_arguments(
   arguments = list(nres = 3:4, nBAUs = seq(20000, 60000, by = 20000))
 )
 
-plot_diagnostics(FRK_scores, arg_names = c("nBAUs", "nres"))
+plot_diagnostics(FRK_scores)
 
 # ---- INLA ----
 
@@ -54,12 +54,7 @@ INLA_scores <- test_arguments(
   arguments = list(max.edge.interior = c(0.2, 0.3, 0.5))
 )
 
-plot_diagnostics(
-  INLA_scores, 
-  # arg_names = c("max.edge.interior", "sigma0", "range0")   # Run 1
-  # arg_names = c("max.edge.interior", "range0") # Run 2
-  arg_names = c("max.edge.interior") # Run 3
-)
+plot_diagnostics(INLA_scores)
 
 # ---- LatticeKrig ----
 
@@ -74,7 +69,7 @@ LKrig_scores <- test_arguments(
   arguments = list(nlevel = 2:4, NC = seq(5, 25, by = 5))
 )
 
-plot_diagnostics(LKrig_scores, arg_names = c("NC", "nlevel")) 
+plot_diagnostics(LKrig_scores) 
 
 
 # ---- mgcv ----
@@ -91,4 +86,4 @@ mgcv_scores <- test_arguments(
                          seq(2250, 3000, by = 250)))
 )
 
-plot_diagnostics(mgcv_scores, arg_names = "k") + scale_x_continuous(n.breaks = 5)
+plot_diagnostics(mgcv_scores) + scale_x_continuous(n.breaks = 5)

@@ -110,7 +110,7 @@ plot_of_SST_training_data <- ggplot() +
 
 ggsave( 
   ggarrange(plot_of_SST_data_world, plot_of_SST_training_data, nrow = 1),
-  filename = "global_and_training_data.png", device = "png", width = 8, height = 2.8,
+  filename = "global_and_training_data.pdf", device = "pdf", width = 8, height = 2.8,
   path = paste0(DIRECTORY, "img/")
 )
 
@@ -215,7 +215,6 @@ times$MRA <- c("elapsed" = MRA_time$totaltime)
 write.csv(df_test, 
           file = paste0(DIRECTORY, "results/df_test.csv"),
           row.names = FALSE)
-df_test <- read.csv(file = paste0(DIRECTORY, "results/df_test.csv"))
 
 ## Save fitted model objects so we can predict over other locations if needed
 # save(fitted_model_objects, file = paste0(DIRECTORY, "fitted_model_objects.RData"))
@@ -225,14 +224,15 @@ times <- sapply(times, function(x) unname(x["elapsed"]))
 times <- t(as.data.frame(times))
 times <- times/60  # convert to minutes
 write.csv(times, file = paste0(DIRECTORY, "results/times.csv"), row.names = FALSE)
-times <- read.csv(file = paste0(DIRECTORY, "results/times.csv"))
 
+# ---- Reload the saved data (useful if stepping through the script without running the models) ----
+
+times   <- read.csv(file = paste0(DIRECTORY, "results/times.csv"))
+df_test <- read.csv(file = paste0(DIRECTORY, "results/df_test.csv"))
 
 # ---- Diagnostics (RMSPE, CRPS, IS90, COV90, time) ----
 
 source(paste0(DIRECTORY, "Diagnostic_fns.R"))
-
-df_test <- read.csv(paste0(DIRECTORY, "results/df_test.csv"))
 
 ## Function to create long form dataframe, useful for diagnostics
 long_prediction_data_frame <- function(df) {
@@ -310,6 +310,9 @@ grid_over_D$se_MRA <- sqrt(MRA_grid_over_D$pred_var)
 write.csv(grid_over_D, 
           file = paste0(DIRECTORY, "results/grid_over_D.csv"), 
           row.names = FALSE)
+
+# ---- Load predictions over D (useful if stepping through the script without running the models) ----
+
 grid_over_D <- read.csv(paste0(DIRECTORY, "results/grid_over_D.csv"))
 
 
@@ -355,7 +358,7 @@ plot_SE <- ggplot(df_long) +
 
 ggsave( 
   ggarrange(plot_predictions, plot_SE, nrow = 2),
-  filename = "DEM_results.png", device = "png", width = 10, height = 5,
+  filename = "DEM_results.pdf", device = "pdf", width = 10, height = 5,
   path = paste0(DIRECTORY, "img/")
 )
 

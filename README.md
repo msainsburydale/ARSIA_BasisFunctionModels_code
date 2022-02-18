@@ -9,7 +9,7 @@ The predictions and standard errors obtained using each package are shown below.
 ![Figure 5: Predictions and standard errors](/img/DEM_results.png?raw=true)
 
 
-## Package versions
+## Dependencies
 
 The package versions used by this repo are:
 - `FRK` version 2.0.1,  

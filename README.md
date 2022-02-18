@@ -1,6 +1,6 @@
 # ARSIA review of basis-function models
 
-As part of our review of basis-function models in spatial statistics (see [here](https://www.annualreviews.org/doi/abs/10.1146/annurev-statistics-040120-020733) for the published manuscript, and see [here](https://arxiv.org/abs/2202.03660) for an arXiv version of the manuscript), we compared the spatial predictions obtained using the `R` packages `FRK` (Zammit-Mangion and Cressie, 2021; Sainsbury-Dale et al., 2021), `INLA` (Rue et al., 2009), `LatticeKrig` (Nychka, 2015), `mgcv` (Wood, 2017), and `gstat` (Pebesma, 2004), as well as a `C++` implementation of the multi-resolutional approximation (Huang et al., 2019).  The data consists of sea-surface temperatures (SST) in the Brazil-Malvinas confluence zone, shown below. This is Figure 4 of the manuscript.
+As part of our review of basis-function models in spatial statistics (see [here](https://www.annualreviews.org/doi/abs/10.1146/annurev-statistics-040120-020733) for the published manuscript, and see [here](https://arxiv.org/abs/2202.03660) for an arXiv version of the manuscript), we compared the spatial predictions obtained using the `R` packages `FRK` (Zammit-Mangion and Cressie, 2021; Sainsbury-Dale et al., 2021), `INLA` (Rue et al., 2009), `LatticeKrig` (Nychka, 2015), `mgcv` (Wood, 2017), and `gstat` (Pebesma, 2004), as well as a `C++` implementation of the multi-resolutional approximation (MRA; Huang et al., 2019).  The data consists of sea-surface temperatures (SST) in the Brazil-Malvinas confluence zone, shown below. This is Figure 4 of the manuscript.
 
 ![Figure 4: Sea-surface temperature data](/img/global_and_training_data.png?raw=true)
 
@@ -9,9 +9,20 @@ The predictions and standard errors obtained using each package are shown below.
 ![Figure 5: Predictions and standard errors](/img/DEM_results.png?raw=true)
 
 
+## Package versions
+
+The package versions used by this repo are:
+- `FRK` version 2.0.1,  
+- `LatticeKrig` version 8.4,
+- `mgcv` version 1.8.31,
+- `gstat` version 2.0.5.
+<!-- - `MRA` version <TODO:Need to ask Yi>. -->
+
+Note that it is particularly important that `FRK` is up-to-date, as the code will not work for any version less than 2.0.0.
+
 ## Instructions
 
-To reproduce the results please download this repository (see [here](https://superuser.com/a/1309684) for steps to download a repository). Open SST_analysis.R; this is the controlling script for the analysis. The code populates the img/ and results/ directories, the contents of which are either used in the paper or by subsequent code.
+To reproduce the results of the manuscript, please download this repository (see [here](https://superuser.com/a/1309684) for steps to download a repository). Open SST_analysis.R; this is the controlling script for the analysis. The code populates the img/ and results/ directories, the contents of which are either used in the paper or by subsequent code.
 
 Within SST_analysis.R, first load the required packages, and then enter the path to the directory containing SST_analysis.R in the DIRECTORY variable. The first stages of this script consist of data pre-processing and visualisation, yielding Figure 4 in the manuscript.
 

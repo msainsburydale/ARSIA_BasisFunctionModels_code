@@ -15,8 +15,8 @@ The package versions used by this repo are:
 - `FRK` version 2.0.1,  
 - `LatticeKrig` version 8.4,
 - `mgcv` version 1.8.31,
-- `gstat` version 2.0.5.
-<!-- - `MRA` version <TODO:Need to ask Yi>. -->
+- `gstat` version 2.0.5,
+-  `MRA` from [this](https://github.com/hhuang90/MRA_For_NCAR_Technical_Note) repo. 
 
 Note that it is particularly important that `FRK` is up-to-date, as the code will not work for any version less than 2.0.0.
 
